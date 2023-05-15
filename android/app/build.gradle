@@ -60,6 +60,24 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('./key.jks')
+            keyAlias = 'key'
+            keyPassword 'tangerino-app'
+            storePassword 'tangerino-app'
+        }
+        debug {
+            storeFile rootProject.file('debug.jks')
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
     }
 }
 
